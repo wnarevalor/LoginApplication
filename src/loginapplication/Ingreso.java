@@ -5,6 +5,9 @@
  */
 package loginapplication;
 
+import entidades.*;
+import Control.*;
+/**
 /**
  *
  * @author USUARIO
@@ -36,6 +39,11 @@ public class Ingreso extends javax.swing.JPanel {
         jLabel2.setText("Contraseña");
 
         aceptarB.setText("Aceptar");
+        aceptarB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aceptarBActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Nombre");
 
@@ -74,7 +82,21 @@ public class Ingreso extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void aceptarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarBActionPerformed
+        // TODO add your handling code here:   Usuario usuario = new Usuario();
+        Usuario usuario = new Usuario();
+        usuario.setNombre(nombreTF.getText());
+        usuario.setContrasena(contraseniaTF.getText());
+        
+        ValidarLogin validar = new ValidarLogin();
+        System.out.println("--------");
+        String resultado = validar.verificarLogin(usuario);
+        
+        System.out.println(resultado);
+        
+    }//GEN-LAST:event_aceptarBActionPerformed
 
+     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aceptarB;
     private javax.swing.JTextField contraseniaTF;

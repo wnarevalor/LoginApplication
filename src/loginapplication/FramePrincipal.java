@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package loginapplication;
-
+import java.util.ArrayList;
+import entidades.*;
 /**
  *
  * @author USUARIO
@@ -20,8 +21,11 @@ public class FramePrincipal extends javax.swing.JFrame {
     
     public FramePrincipal() {
         initComponents();
+        inicializacion();
     }
 
+    public static Sistema sistema = new Sistema();
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -153,6 +157,39 @@ public class FramePrincipal extends javax.swing.JFrame {
                 new FramePrincipal().setVisible(true);
             }
         });
+    }
+    
+    public void inicializacion(){
+       
+        ArrayList<Usuario> usuarios = new ArrayList<Usuario>();    
+        
+        Usuario a = new Usuario();
+        Usuario b = new Usuario();
+        Usuario c = new Usuario();
+        
+        a.setNombre("juan");
+        a.setContrasena("1234");
+        b.setNombre("pedro");
+        b.setContrasena("123");
+        c.setNombre("maria");
+        c.setContrasena("12345");
+        
+        
+        usuarios.add(a);
+        usuarios.add(b);
+        usuarios.add(c);
+        
+        sistema.setUsuarios(usuarios);
+        
+        
+        for(Usuario u: sistema.getUsuarios()){
+            System.out.println(u.getNombre());
+            System.out.println(u.getContrasena());
+            System.out.println("----------");
+
+            
+        }
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
