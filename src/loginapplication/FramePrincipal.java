@@ -21,7 +21,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     
     public FramePrincipal() {
         initComponents();
-        inicializacion();
+        //inicializacion();
     }
 
     public static Sistema sistema = new Sistema();
@@ -159,7 +159,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         });
     }
     
-    public void inicializacion(){
+    /*public void inicializacion(){
        
         ArrayList<Usuario> usuarios = new ArrayList<Usuario>();    
         
@@ -190,7 +190,7 @@ public class FramePrincipal extends javax.swing.JFrame {
             
         }
         
-    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ingresoB;

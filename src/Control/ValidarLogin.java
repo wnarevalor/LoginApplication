@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Control;
+import DAO.UsuarioDAO;
 import entidades.*;
 import loginapplication.FramePrincipal;
 /**
@@ -12,12 +13,12 @@ import loginapplication.FramePrincipal;
  */
 public class ValidarLogin {
 
-    private Sistema sistema = FramePrincipal.sistema;
-    
+    //private Sistema sistema = FramePrincipal.sistema;
+    private UsuarioDAO dao = new UsuarioDAO();
+            
     public ValidarLogin() {
     }
-    
-    
+        
     public String verificarLogin(Usuario usuario){
         if(!verificarLongitudNombre(usuario.getNombre())){
             return("Longitud de nombre incorrecta");
@@ -26,15 +27,16 @@ public class ValidarLogin {
             return("Longitud de contraseña incorrecta");
         }
         
-        for(Usuario u: sistema.getUsuarios()){
+    /*    for(Usuario u: sistema.getUsuarios()){
             if(u.getNombre().equals(usuario.getNombre()) &&
                u.getContrasena().equals(usuario.getContrasena())){
             return "Bienvenido";
-            }   
+            }  
+        }*/
+        if(dao.leer(usuario) != null){
+            return("Bienvenido");
         }
-        
-        return "Datos incorrectos";
-        
+        return "Datos incorrectos";    
     }
     
     public boolean verificarLongitudNombre(String nombre){       
